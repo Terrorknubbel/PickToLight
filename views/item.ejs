@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../assets/css/item.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.css">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <%- include('navbar'); %>
+
+    <div class="container mt-3">
+        <table class="table mt-3">
+            <tbody>
+              <tr>
+                <th scope="row">Artikelnummer</th>
+                <td id="id"><%= item.id %></td>
+              </tr>
+              <tr>
+                <th scope="row">Name</th>
+                <td id="Name"><%= item.name %></td>
+              </tr>
+              <tr>
+                <th scope="row">Kategorie</th>
+                <td><%= item.category %></td>
+              </tr>
+              <tr>
+                <th scope="row">Ort</th>
+                <td><%= item.storage_location %></td>
+              </tr>
+              <tr>
+                <th scope="row">Anzahl</th>
+                <td id="Anzahl"><%= item.number %></td>
+              </tr>
+              <tr>
+                <th scope="row">Mindestanzahl</th>
+                <td><%= item.minimum_number %></td>
+              </tr>
+            </tbody>
+          </table>
+          
+    </div>
+
+    <div class="container h4 d-flex justify-content-center mt-1">
+        Auslagern/Einlagern
+    </div>
+    <div class="input-group mb-3 pl-5 pr-5">
+        <div class="input-group-prepend ml-5">
+            <span class="input-group-text" onclick='this.parentNode.parentNode.querySelector("input").stepDown()'>-</span>
+        </div>
+        <input type="number" class="form-control " value="0">
+        <div class="input-group-append mr-5">
+            <span class="input-group-text" onclick='this.parentNode.parentNode.querySelector("input").stepUp()'>+</span>
+        </div>
+        
+    </div>
+
+    <div class="container d-flex justify-content-center mt-3">
+        <button type="button" id="Speichern" class="btn btn-success btn-lg mt-5" disabled>Speichern</button>
+    </div>
+
+    <div id="ErrorMsg" class="container d-flex justify-content-center mt-2 text-danger h6">
+        
+    </div>
+    <footer>
+
+    </footer>
+
+
+    <%- include('scripts'); %>
+    <script src="../assets/js/item.js"></script>
+
+</body>
+</html>
